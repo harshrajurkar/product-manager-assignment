@@ -1,103 +1,97 @@
-# Product Requirements Document (PRD)
+# 🛡️ Container Image Vulnerability Dashboard - PRD
 
-## 1. Title
-Container Image Vulnerability Dashboard
+## 1. What is this project about?
 
----
-
-## 2. Problem Statement
-Users managing large repositories of container images (e.g., Docker images) face a challenge in identifying which images have vulnerabilities — especially critical ones that require immediate fixes. With thousands of images, manual inspection is not scalable. A clear, actionable dashboard is needed to surface key information and guide remediation.
+When developers use containers (like Docker), they often don’t know if the images inside them have **security issues** (vulnerabilities). This project is about building a **dashboard** that shows all those issues clearly — like a control panel — so users can take action fast.
 
 ---
 
-## 3. Goals
-- Provide visibility into vulnerabilities in container images.
-- Enable users to filter and prioritize based on severity (Critical, High, Medium, Low).
-- Allow quick identification of images requiring fixes.
-- Support easy navigation and search across thousands of images.
-- Provide drill-downs for vulnerability details and fix recommendations.
+## 2. Why is it needed?
+
+Let’s say you're a DevOps engineer or security analyst managing hundreds of container images. It's almost impossible to manually check which ones are vulnerable. This dashboard helps answer:
+- Which images are risky?
+- What kind of issues are there?
+- What can I do about them?
 
 ---
 
-## 4. Target Users
-- **DevOps Engineers** – manage container images and deployments.
-- **Security Analysts** – responsible for vulnerability management.
-- **Engineering Managers** – want visibility into risk posture.
+## 3. Who is this for?
+
+- 🧑‍💻 DevOps Engineers – managing images & deployments
+- 🛡️ Security Teams – tracking vulnerabilities
+- 👨‍💼 Engineering Managers – need visibility & reports
 
 ---
 
-## 5. Features & Functionality
+## 4. Key Features
 
-### 🔸 Dashboard View
-- Overview panels:
-  - Total Images Scanned
-  - Total Vulnerabilities (with breakdown by severity)
-  - % Images with Critical or High vulnerabilities
-- Top 5 Most Vulnerable Images
-- Filters: Time range, Image type, Severity
+### 🧮 Dashboard
+- Total images scanned
+- Total vulnerabilities found
+- Breakdown by severity: Critical / High / Medium / Low
+- Top 5 most vulnerable images
+- Filters: Time range, severity
 
-### 🔸 Image List View
-- Table showing:
-  - Image Name
-  - Repository
-  - Scan Status
-  - Vulnerabilities by Severity
-  - Last Scan Time
-- Sorting: by severity count, scan date, name
-- Filters: Severity, Registry, Tags
+### 📋 Image List View
+- Image name, repository, and scan status
+- Count of issues by severity
+- Last scanned time
+- Filter and sort options
 
-### 🔸 Image Detail View
-- Image metadata (repo, tag, size)
-- List of vulnerabilities:
-  - CVE ID
-  - Severity
+### 🔍 Image Detail Page
+- Image info (name, tag, size)
+- List of vulnerabilities with:
+  - CVE ID (issue identifier)
+  - Severity level
   - Affected package
-  - Fix available (Y/N)
-  - Path
-- Suggested Fix / Remediation Option
-- “Ignore” or “Mark as Fixed” buttons
+  - Fix available? (Yes/No)
+- Buttons: "Ignore", "Mark as Fixed"
 
-### 🔸 Optional
-- Export vulnerabilities to CSV/PDF
-- Notifications for new critical findings
+### 📤 Optional Goodies
+- Export to CSV/PDF
+- Email alerts for new issues
 
 ---
 
-## 6. User Flow
+## 5. How it works (User Flow)
 
-1. User logs in and lands on Dashboard.
-2. They view total vulnerabilities and filter for critical ones.
-3. Click on a specific image to view its vulnerability details.
-4. Identify a fixable issue and take action.
-5. (Optional) Export report or assign to engineer.
-
----
-
-## 7. Non-Functional Requirements
-- Scalable: Must support >10,000 images
-- Secure: Role-based access (read-only, editor)
-- Fast: Dashboards must load within 2 seconds
-- API-first design
+1. You log in to the dashboard
+2. You see a summary of all image issues
+3. You click on a specific image to view details
+4. You decide what action to take (fix, ignore, export)
+5. You repeat this as new images or issues appear
 
 ---
 
-## 8. Success Metrics
-- Time to identify critical images
-- % vulnerabilities fixed over time
-- Reduction in critical issues after X days
-- User engagement (login frequency, filters used)
+## 6. Our Setup (Real Example)
+
+- ✅ Built a GoLang web app that shows current **date & time**
+- 🐳 Containerized it using **Docker**
+- ☁️ Pushed image to **DockerHub**
+- ☸️ Deployed it to **AWS EKS** with 2 pods
+- 🌍 Exposed app using a **LoadBalancer** (you can visit it from the browser!)
 
 ---
 
-## 9. Assumptions
-- Images are stored in a connected registry (e.g., DockerHub, ECR, etc.)
-- Vulnerability database is updated regularly (e.g., NVD, Snyk)
-- User has permission to act on images
+## 7. What makes this better?
+
+- Simple UI for thousands of images
+- Fast, human-friendly overview
+- Focused on real-world use cases
+- Based on **real cloud infrastructure**
 
 ---
 
-## 10. Future Enhancements
-- Auto-remediation for known fixable issues
-- Integration with CI/CD pipelines
-- Role-based reporting dashboards
+## 8. Future Ideas
 
+- Automatically fix known issues
+- Add login + role management
+- Integrate with CI/CD pipelines for real-time scanning
+
+---
+
+## 9. Success = 🚀
+
+- You can find critical images in under 1 minute
+- More vulnerabilities get fixed
+- Dashboards load fast even for 10,000+ images
